@@ -45,6 +45,11 @@ def decode_word(word)
   p word.split(' ').map { |char| MORSE[char] }.join('')
 end
 
+def decode_message(message)
+  p message.split('   ').map { |word| decode_word(word)}.join(' ')
+end
+
 
 decode_char('...-')
 decode_word('...- .-.. .-.. ---')
+decode_message('-- -.--   -. .- -- .')
