@@ -35,21 +35,20 @@ MORSE = {
   '--...' => 7,
   '---..' => 8,
   '----.' => 9
-}
+}.freeze
 
 def decode_char(char)
   p MORSE[char]
 end
 
 def decode_word(word)
-  p word.split(' ').map { |char| MORSE[char] }.join('')
+  word.split.map { |char| MORSE[char] }.join
 end
 
 def decode_message(message)
-  p message.split('   ').map { |word| decode_word(word)}.join(' ')
+  p message.split('   ').map { |word| decode_word(word) }.join(' ')
 end
-
 
 decode_char('...-')
 decode_word('...- .-.. .-.. ---')
-decode_message('-- -.--   -. .- -- .')
+decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
